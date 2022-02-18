@@ -6,13 +6,13 @@ import (
 )
 
 func Setup(app *fiber.App) {
-	app.Post("/register", controllers.Register)
-	app.Post("/login", controllers.Login)
-	app.Get("/login", controllers.Login)
-	app.Get("/logout", controllers.Logout)
-	app.Get("/todos", controllers.GetAll)
-	app.Post("/new", controllers.NewTodo)
-	app.Post("/todo/:id", controllers.Update)
-	app.Delete("/todo/:id", controllers.Delete)
-	app.Get("/ping", controllers.Ping)
+	app.Post("/todo/api/register", controllers.Register)
+	app.Post("/todo/api/login", controllers.Login)
+	app.Get("/todo/api/login", controllers.Login)
+	app.Get("/todo/api/logout", controllers.Logout)
+	app.Get("/todo/api/todos", controllers.GetAll)
+	app.Post("/todo/api/new", controllers.NewTodo)
+	app.Post("/todo/api/todo/:id", controllers.Update)
+	app.Delete("/todo/api/todo/:id", controllers.Delete)
+	app.Get("/todo/api/ping", controllers.Ping)
 }
