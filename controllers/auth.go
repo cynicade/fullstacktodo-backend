@@ -168,7 +168,13 @@ func Login(c *fiber.Ctx) error {
 }
 
 func Logout(c *fiber.Ctx) error {
-	c.ClearCookie("token")
+	cookie := fiber.Cookie{
+		Name:     "token",
+		Value:    "",
+		Expires:  time.Now().Add(-3 * time.Second),
+		HTTPOnly: true,
+	}
+	c.Cookie(&cookie)
 	c.Status(fiber.StatusOK)
 	return c.JSON(fiber.Map{
 		"message": "logged out",
