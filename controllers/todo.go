@@ -94,6 +94,7 @@ func NewTodo(c *fiber.Ctx) error {
 		c.Status(fiber.StatusOK)
 		return c.JSON(fiber.Map{
 			"message": "saved todo to database successfully",
+			"todo":    todo,
 		})
 	}
 

@@ -82,7 +82,8 @@ func Register(c *fiber.Ctx) error {
 	c.Status(fiber.StatusCreated)
 	c.Cookie(&cookie)
 	return c.JSON(fiber.Map{
-		"message": "user registered successfully",
+		"message":  "user registered successfully",
+		"username": user.Username,
 	})
 }
 
@@ -116,7 +117,8 @@ func Login(c *fiber.Ctx) error {
 
 			c.Status(fiber.StatusOK)
 			return c.JSON(fiber.Map{
-				"message": "logged in successfully",
+				"message":  "logged in successfully",
+				"username": user.Username,
 			})
 		} else {
 			c.Status(fiber.StatusUnauthorized)
